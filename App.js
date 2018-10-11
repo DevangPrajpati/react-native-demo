@@ -1,7 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View, TextInput, StatusBar, Image, TouchableOpacity, Button, ScrollView} from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
-import Icon from 'react-native-vector-icons/dist/FontAwesome';
+import { Ionicons, SimpleLineIcons, MaterialIcons, Feather, MaterialCommunityIcons} from '@expo/vector-icons';
 import { Constants, LinearGradient} from 'expo';
 import { AreaChart, Grid } from 'react-native-svg-charts';
 import { PieChart } from 'react-native-svg-charts';
@@ -11,6 +10,7 @@ import TabNavigator from 'react-native-tab-navigator';
 import * as shape from 'd3-shape'
 
 import styles from "./styles";
+
 
 export default class App extends React.Component {
   static  defaultProps = {
@@ -62,18 +62,35 @@ export default class App extends React.Component {
 
     return (
       <View style={styles.container}>
+        <View style={styles.statusBar}></View>
+
+        <View style={{backgroundColor: '#FFFFFF',height: 60,shadowColor: '#30C1DD',shadowRadius: 10,shadowOpacity: 0.9,elevation: 8,shadowOffset: {width: 0,height: 2}}}>
+          <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+            <Image style={styles.headerImage} source={require('./assets/bitcoin.png')}/>
+            <Text style={{marginTop: 19, letterSpacing: 0.5 }}>Bitcoin Portfolio BTC Balance : $ 15,509 </Text>
+            <TouchableOpacity>
+              <Ionicons name="ios-list" size={55} style={styles.notificationIcon}/>
+            </TouchableOpacity>
+          </View>
+        </View>
+
         <ScrollView>
-          <View style={styles.statusBar}></View>
 
           <View style= {styles.searchBarRow}>
-            <TextInput
-              underlineColorAndroid="transparent"
-              style={styles.searchInputText}
-              placeholder="Start typing to search ..."
-              placeholderTextColor="#5B7293"
-            />
-            <Image style={styles.profileImage} source={require('./assets/sara.jpg')}/>
-            <Ionicons name="ios-notifications-outline" size={55} style={styles.notificationIcon}/>
+              <View style={styles.searchInputText}>
+                <View style={{flex: 1, justifyContent: 'center', paddingLeft: 25}}>
+                  <TextInput
+                    underlineColorAndroid="transparent"
+                    placeholder="Start typing to search ..."
+                    placeholderTextColor="#5B7293"
+                  />
+                </View>
+                <View style={{justifyContent: 'center'}}>
+                    <Image style={styles.searchBarIcon} source={require('./assets/search.png')}/>
+                </View>
+              </View>
+              <Image style={styles.profileImage} source={require('./assets/sara.jpg')}/>
+              <Ionicons name="ios-notifications-outline" size={55} style={styles.notificationIcon}/>
           </View>
 
           <View style= {{paddingTop: 25}}>
@@ -96,15 +113,15 @@ export default class App extends React.Component {
                </TouchableOpacity>
 
                <TouchableOpacity style={styles.buttonGradient}>
-                 <View style= {styles.commonBtnStyle}>
-                    <Text style= {styles.coinDownName}> Ethereum </Text>
-                    <Ionicons name="ios-trending-down" size={30} style={styles.ioniconsDown}/>
-                 </View>
-                 <View style= {styles.commonIcon}>
-                    <Ionicons name="ios-remove" size={15} style= {styles.removeIconColor}/>
-                    <Text style={styles.percentage}> 5% </Text>
-                 </View>
-              </TouchableOpacity>
+                   <View style= {styles.commonBtnStyle}>
+                      <Text style= {styles.coinDownName}> Ethereum </Text>
+                      <Ionicons name="ios-trending-down" size={30} style={styles.ioniconsDown}/>
+                   </View>
+                   <View style= {styles.commonIcon}>
+                      <Ionicons name="ios-remove" size={15} style= {styles.removeIconColor}/>
+                      <Text style={styles.percentage}> 5% </Text>
+                   </View>
+                </TouchableOpacity>
             </View>
 
             <View style={{flexDirection: 'row'}}>
@@ -122,7 +139,7 @@ export default class App extends React.Component {
                <TouchableOpacity style={styles.buttonGradient}>
                    <View style= {styles.commonBtnStyle}>
                       <Text style= {styles.coinDownName}> Crypterium </Text>
-                      <Ionicons name="ios-trending-down" size={23} style={styles.ioniconsDown}/>
+                      <Ionicons name="ios-trending-down" size={30} style={styles.ioniconsDown}/>
                    </View>
                    <View style= {styles.commonIcon}>
                       <Ionicons name="ios-remove" size={15} style= {styles.removeIconColor}/>
@@ -133,7 +150,7 @@ export default class App extends React.Component {
           </View>
 
           <TouchableOpacity style= {styles.addWalletbtn}>
-            <View style={{flexDirection: 'row',justifyContent: 'center', alignItem: 'center'}}>
+            <View style={{flexDirection: 'row',justifyContent: 'center', alignItems: 'center'}}>
               <Ionicons name="ios-add-circle-outline" size={15} style={styles.addWalletIcon}/>
               <Text style={styles.addWalletTextColor}> Add Wallet </Text>
             </View>
@@ -238,7 +255,7 @@ export default class App extends React.Component {
             </View>
           </View>
 
-          <View style= {{flexDirection: 'row'}}>
+          <View style= {{flexDirection: 'row', marginTop: 50}}>
             <TouchableOpacity style= {styles.addWallet2nbtn}>
               <View style={{flexDirection: 'row',justifyContent: 'center', marginTop: 30}}>
                 <Ionicons name="ios-add-circle-outline" size={20}/>
@@ -303,7 +320,7 @@ export default class App extends React.Component {
           </View>
 
           <View style= {{flex: 1, flexDirection: 'row'}}>
-            <ScrollView horizontal={true}>
+            <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
               <View style={styles.sentMoneyToView}>
                   <Image style={styles.profileSentMoneyImage} source={require('./assets/user1.jpeg')}/>
                 <Text> Genie Brawner </Text>
@@ -355,34 +372,57 @@ export default class App extends React.Component {
             }
             </ScrollView>
           </View>
+
+          <View style= {{flex: 1, flexDirection: 'row',height: 60}}>
+          </View>
         </ScrollView>
-        <TabNavigator>
-            <TabNavigator
-              renderIcon={() => <Ionicons name="ios-apps" size={28} style={{color:'#000'}} />}
-            />
 
-            <TabNavigator
-              renderIcon={() => <Ionicons name="ios-paper" size={28} style={{color:'#000'}} />}
-            >
-            </TabNavigator>
-            <TabNavigator
-              renderIcon={() => <Ionicons name="ios-document" size={28} style={{color:'#000'}} />}
-            >
-            </TabNavigator>
-            <TabNavigator
-              renderIcon={() => <Ionicons name="ios-mail" size={28} style={{color:'#000'}} />}
-            />
-
-            <TabNavigator
-              renderIcon={() => <Ionicons name="ios-people" size={28} style={{color:'#000'}} />}
-            >
-            </TabNavigator>
-            <TabNavigator
-              renderIcon={() => <Ionicons name="ios-share-alt" size={28} style={{color:'#000'}} />}
-            >
-            </TabNavigator>
-        </TabNavigator>
+        <View style= {{flexDirection: 'row', justifyContent: 'center', alignItems: 'center'}}>
+          <View style={styles.homeBox}>
+            <View style={styles.subBox}>
+              <View style={styles.subChildBox}>
+                <LinearGradient
+                   colors={['#8ADE8E', '#56C3A4']}
+                   start={{x: 0.0, y: 1.0}} end={{x: 1.0, y: 1.0}}
+                   style={{borderRadius: 100, marginTop: 10}}
+                 >
+                  <View style={styles.homeButton}>
+                    <MaterialCommunityIcons name="application" size={40} color= "#FFFFFF" style={{marginLeft: 13, marginTop: 12}}/>
+                  </View>
+                </LinearGradient>
+              </View>
+            </View>
+          </View>
         </View>
+
+
+        <View style={{flex: 1}}>
+          <View style={{flexDirection: 'row', position: 'absolute', paddingBottom: 0, left: 0, right: 0, bottom: 0, justifyContent: 'space-between' ,backgroundColor: '#E1DBDB', height: 60}}>
+            <View style={{flexDirection: 'row', paddingTop: 15 }}>
+              <TouchableOpacity>
+                <SimpleLineIcons name="layers" size={30} color="black" style={{paddingHorizontal: 12}}/>
+              </TouchableOpacity>
+              <TouchableOpacity>
+                <Feather name="layout" size={30} color="black" style={{paddingHorizontal: 12}}/>
+              </TouchableOpacity>
+              <TouchableOpacity>
+                <Feather name="file-text" size={30} color="black" style={{paddingHorizontal: 12}}/>
+              </TouchableOpacity>
+            </View>
+            <View style={{flexDirection: 'row',paddingTop: 15 }}>
+              <TouchableOpacity>
+                <Feather name="mail" size={30} color="black" style={{paddingHorizontal: 12}}/>
+              </TouchableOpacity>
+              <TouchableOpacity>
+                <Feather name="users" size={30} color="black" style={{paddingHorizontal: 12}}/>
+              </TouchableOpacity>
+              <TouchableOpacity>
+                <Feather name="arrow-down-right" size={30} color="black" style={{paddingHorizontal: 12}}/>
+              </TouchableOpacity>
+            </View>
+          </View>
+        </View>
+      </View>
 
 
     );

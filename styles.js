@@ -11,14 +11,12 @@ export default {
     backgroundColor: '#fff'
   },
   statusBar: {
-   margin: 10,
    backgroundColor: "#ffffff",
    height: Constants.statusBarHeight,
  },
   button: {
     flex: 1,
     width: deviceWidth / 2.09,
-    height: deviceHeight / 9,
     padding: 10,
     backgroundColor: '#ffffff',
     borderRadius: 10,
@@ -34,7 +32,6 @@ export default {
     flex: 1,
     padding: 15,
     width: deviceWidth / 1.04,
-    height: deviceHeight / 2.5,
     backgroundColor: '#ffffff',
     borderWidth: 1,
     borderRadius: 10,
@@ -51,7 +48,6 @@ export default {
     flex: 1,
     padding: 15,
     width: deviceWidth / 1.04,
-    height: deviceHeight / 1.8,
     backgroundColor: '#ffffff',
     borderWidth: 1,
     borderRadius: 10,
@@ -68,7 +64,6 @@ export default {
     flex: 1,
     padding: 10,
     width: deviceWidth / 1.06,
-    height: deviceHeight / 6,
     backgroundColor: '#ffffff',
     borderWidth: 1,
     borderRadius: 10,
@@ -84,7 +79,6 @@ export default {
   buttonGradient: {
     flex: 1,
     width: deviceWidth / 2.09,
-    height: deviceHeight /9.1,
     backgroundColor: '#ffffff',
     borderRadius: 10,
     shadowColor: '#30C1DD',
@@ -139,17 +133,32 @@ export default {
     marginTop: 8
   },
   searchInputText: {
-    padding: 10,
+    flexDirection: 'row',
     width: deviceWidth / 1.5,
     backgroundColor: '#eeeeee',
     borderRadius: 30,
     marginLeft: 8,
+    paddingVertical: 12
+  },
+  searchBarIcon: {
+    width: 30,
+    height: 30,
+    borderRadius: 50,
+    marginHorizontal: 10,
   },
   profileImage: {
     width: 50,
     height: 50,
     borderRadius: 50,
     marginHorizontal: 10,
+  },
+  headerImage: {
+    width: 40,
+    height: 40,
+    borderRadius: 50,
+    marginLeft: 10,
+    marginTop: 10,
+    justifyContent: 'center'
   },
   profileSentMoneyImage: {
     width: 50,
@@ -164,6 +173,17 @@ export default {
     alignItems: 'center',
     marginLeft: 10,
   },
+  // headerStyle: {
+  //   backgroundColor: '#FFFFFF',
+  //   height: 60,
+  //   marginBottom: 20,
+  //   shadowColor: '#30C1DD',
+  //   shadowRadius: 10,
+  //   shadowOpacity: 0.9,
+  //   elevation: 8,
+  //   shadowOffset: {width: 0,height: 2}
+  // },
+
   addSentMoneyPerson: {
     flexDirection: 'column',
     justifyContent: 'center',
@@ -191,10 +211,7 @@ export default {
   depositeBtnStyle: {
     flexDirection: 'row',
     justifyContent: 'center',
-    alignItem: 'center',
-  },
-  coinDownName: {
-    color: '#000',
+    alignItems: 'center',
   },
   dipositeMoney: {
     fontSize: 17,
@@ -248,6 +265,9 @@ export default {
     color: '#44DA79',
     marginTop: 2
   },
+  coinDownName: {
+    color: '#000',
+  },
   balancePercentage: {
     fontSize: 20,
     color: '#44DA79',
@@ -287,7 +307,8 @@ export default {
   searchBarRow: {
     flexDirection: 'row',
     justifyContent: 'center',
-    alignItem: 'center',
+    alignItems: 'center',
+    marginTop: 32,
   },
   notificationIcon: {
     marginRight: 10
@@ -342,6 +363,65 @@ export default {
     marginHorizontal: 5,
     marginTop: 8
   },
+  homeBox: {
+    width: deviceWidth / 1.7,
+    height: deviceHeight / 3.5,
+    backgroundColor: '#ffffff',
+    borderTopLeftRadius: 150,
+    borderTopRightRadius: 150,
+    padding: 10,
+    shadowColor: '#30C1DD',
+    shadowRadius: 10,
+    shadowOpacity: 0.9,
+    elevation: 8,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  subBox: {
+
+    width: deviceWidth / 2.8,
+    height: deviceHeight / 3,
+    backgroundColor: '#FAFBFD',
+    borderTopLeftRadius: 100,
+    borderTopRightRadius: 100,
+    // marginLeft: 37,
+    marginTop: 130,
+    shadowColor: '#30C1DD',
+    shadowRadius: 10,
+    shadowOpacity: 0.9,
+    elevation: 8,
+    shadowOffset: {width: 0,height: 10},
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  subChildBox: {
+    width: deviceWidth / 4.8,
+    height: deviceHeight / 4.1,
+    backgroundColor: '#FFFFFF',
+    borderTopLeftRadius: 100,
+    borderTopRightRadius: 100,
+    // marginLeft: 28,
+    shadowColor: '#30C1DD',
+    shadowRadius: 10,
+    shadowOpacity: 0.9,
+    elevation: 8,
+    shadowOffset: {width: 0,height: 10},
+    // justifyContent: 'center',
+    alignItems: 'center',
+
+  },
+  homeButton: {
+    width: deviceWidth / 6,
+    height: deviceHeight / 10.5,
+    borderRadius: 100,
+  },
+  homeEditButton: {
+    width: deviceWidth / 8,
+    height: deviceHeight / 14,
+    borderRadius: 100,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
   transactionMainName: {
     marginTop: 12,
     fontSize: 17
@@ -353,5 +433,24 @@ export default {
   },
   coinNameColor: {
     color: '#90A1B7'
-  }
+  },
+//   SectionStyle: {
+//    flexDirection: 'row',
+//    justifyContent: 'center',
+//    alignItems: 'center',
+//    backgroundColor: '#fff',
+//    borderColor: '#000',
+//    height: 40,
+//    borderRadius: 5 ,
+//    margin: 10
+// },
+
+ImageStyle: {
+   padding: 10,
+   margin: 5,
+   height: 25,
+   width: 25,
+   resizeMode : 'stretch',
+   alignItems: 'center'
+},
 };
