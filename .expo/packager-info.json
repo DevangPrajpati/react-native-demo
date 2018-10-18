@@ -1,8 +1,8 @@
 {
   "expoServerPort": 19000,
   "packagerPort": 19001,
-  "packagerPid": 819,
-  "expoServerNgrokUrl": null,
-  "packagerNgrokUrl": null,
-  "ngrokPid": null
+  "packagerPid": 1203,
+  "expoServerNgrokUrl": "https://qj-bmd.devang25081994.currency.exp.direct",
+  "packagerNgrokUrl": "https://packager.qj-bmd.devang25081994.currency.exp.direct",
+  "ngrokPid": 1220
 }

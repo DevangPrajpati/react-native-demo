@@ -57,6 +57,7 @@ class AddButton extends Component {
                 <Animated.View style={{position: 'absolute',left: firstX,top: firstY,opacity}}>
                     <TouchableHighlight
                         onPress={() => {}}
+                        underlayColor={'transparent'}
                         style={{alignItems: 'center',justifyContent: 'center',width: SIZE / 2,height: SIZE / 2,borderRadius: SIZE / 4,}}
                     >
                       <LinearGradient
@@ -71,6 +72,7 @@ class AddButton extends Component {
                 <Animated.View style={{position: 'absolute',left: secondX,top: secondY,opacity}}>
                     <TouchableHighlight
                         onPress={() => {}}
+                        underlayColor={'transparent'}
                         style={{alignItems: 'center',justifyContent: 'center',width: SIZE ,height: SIZE ,borderRadius: SIZE / 2}}
                     >
                     <LinearGradient
@@ -85,6 +87,7 @@ class AddButton extends Component {
                 <Animated.View style={{position: 'absolute',left: thirdX,top: thirdY,opacity}}>
                     <TouchableHighlight
                         onPress={() => {}}
+                        underlayColor={'transparent'}
                         style={{alignItems: 'center',justifyContent: 'center',width: SIZE / 2,height: SIZE / 2,borderRadius: SIZE / 4}}
                     >
                     <LinearGradient
